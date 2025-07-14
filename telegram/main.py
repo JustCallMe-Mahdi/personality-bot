@@ -27,10 +27,10 @@ router = Router()
 main_menu = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="🧠 تست ها")],
-        [KeyboardButton(text="💬 چت ناشناس"), KeyboardButton(text="🎲 سرگرمی و تست فان")],
-        [KeyboardButton(text="🎥 فیلم و مدیا"), KeyboardButton(text="🎁 کیف پول")],
-        [KeyboardButton(text="🎖️ چالش روزانه"), KeyboardButton(text="📊 رتبه‌بندی")],
-        [KeyboardButton(text="📚 ویکی‌بات"), KeyboardButton(text="📞 پشتیبانی")]
+        [KeyboardButton(text="💬 چت ناشناس (به زودی)"), KeyboardButton(text="🎲 سرگرمی و تست فان (به زودی)")],
+        [KeyboardButton(text="🎥 فیلم و مدیا (به زودی)"), KeyboardButton(text="🎁 کیف پول (به زودی)")],
+        [KeyboardButton(text="🎖️ چالش روزانه (به زودی)"), KeyboardButton(text="📊 رتبه‌بندی (به زودی)")],
+        [KeyboardButton(text="📚 ویکی‌بات (به زودی)"), KeyboardButton(text="📞 پشتیبانی")]
     ],
     resize_keyboard=True,
     input_field_placeholder="یک گزینه رو انتخاب کن..."
@@ -199,8 +199,8 @@ async def get_gender(callback: CallbackQuery, state: FSMContext):
 tests_menu = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="🧠 تست‌های شخصیت")],
-        [KeyboardButton(text="😟 تست‌های روان‌درمانی"), KeyboardButton(text="🧠 تست‌های هوش")],
-        [KeyboardButton(text="👤 تست‌های رفتاری"), KeyboardButton(text="❤️ تست‌های روابط")],
+        [KeyboardButton(text="😟 تست‌های روان‌درمانی (به زودی)"), KeyboardButton(text="🧠 تست‌های هوش (به زودی)")],
+        [KeyboardButton(text="👤 تست‌های رفتاری (به زودی)"), KeyboardButton(text="❤️ تست‌های روابط (به زودی)")],
         [KeyboardButton(text="🔙 بازگشت به منوی اصلی")],
     ],
     resize_keyboard=True,
@@ -239,12 +239,12 @@ async def back_to_main_menu(message: Message):
 
 personality_menu = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="MBTI – 🧩", callback_data="MBTI_test")],
-        [InlineKeyboardButton(text="Big Five – 🧠", callback_data="BigFive_test"),
-        InlineKeyboardButton(text="Enneagram – 🔺", callback_data="Enneagram_test")],
-        [InlineKeyboardButton(text="HEXACO – 🔶", callback_data="HEXACO_test"),
-        InlineKeyboardButton(text="DISC – 🔄", callback_data="DISC_test")],
-        [InlineKeyboardButton(text="🔙 بازگشت", callback_data="main_menu")],
+        [InlineKeyboardButton(text=" ( آماده ) MBTI – 🧩", callback_data="MBTI_test")],
+        [InlineKeyboardButton(text=" (به زودی)Big Five – 🧠", callback_data="BigFive_test"),
+        InlineKeyboardButton(text=" (به زودی)Enneagram – 🔺", callback_data="Enneagram_test")],
+        [InlineKeyboardButton(text=" (به زودی)HEXACO – 🔶", callback_data="HEXACO_test"),
+        InlineKeyboardButton(text=" (به زودی)DISC – 🔄", callback_data="DISC_test")],
+        [InlineKeyboardButton(text="🔙 بازگشت (به زودی)", callback_data="main_menu")],
     ]
 )
 
