@@ -277,6 +277,78 @@ async def personality_test(message: Message, state: FSMContext):
 
 
 
+# ---------------------------------------------
+
+intelligence_menu = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="IQ (مثل Raven) – 🧬", callback_data="IQ_test")],
+        [InlineKeyboardButton(text="حافظه کاری – 🗂️", callback_data="memory_test")],
+        [InlineKeyboardButton(text="🔙 بازگشت", callback_data="main_menu")],
+    ]
+)
+
+
+@router.message(F.text == "🧠 تست‌های هوش")
+async def Intelligence_test(message: Message, state: FSMContext):
+    profile = get_user_profile(message.from_user.id)
+    name = profile[0] if profile else "رفیق"
+    await message.answer("""🧠 آماده‌ای مغزتو به چالش بکشی؟
+اینجا قراره قدرت تحلیل، دقت و سرعت مغزتو تست کنیم!
+از تست‌های کلاسیک هوش گرفته تا معماهایی که مغزتو به جوش میارن.
+یکیو انتخاب کن و ببین چند مرده حلاجی 😏""", reply_markup=intelligence_menu)
+
+
+
+# -------------------------------------------------
+
+
+mantal_menu = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="افسردگی بک (BDI) – 🌧️", callback_data="BDI_test")],
+        [InlineKeyboardButton(text="اضطراب بک (BAI) – 😰", callback_data="BAI_test"),
+        InlineKeyboardButton(text="GAD-7 (اضطراب فراگیر) – 🌀", callback_data="GAD_test")],
+        [InlineKeyboardButton(text="PHQ-9 (افسردگی) – 📉", callback_data="PHQ_test"),
+        InlineKeyboardButton(text="OCD (وسواس) – 🔁", callback_data="OCD_test")],
+        [InlineKeyboardButton(text="🔙 بازگشت", callback_data="main_menu")],
+    ]
+)
+
+
+@router.message(F.text == "😟 تست‌های روان‌درمانی")
+async def mental_test(message: Message, state: FSMContext):
+    profile = get_user_profile(message.from_user.id)
+    name = profile[0] if profile else "زفیق"
+    await message.answer("""🌿 یک قدم به سمت آرامش ذهن
+این تست‌ها برای این طراحی شدن که بهت کمک کنن احساساتتو بهتر بشناسی، الگوهای رفتاری‌تو درک کنی و شاید ریشه‌ی بعضی درگیری‌های ذهنی‌تو پیدا کنی.
+هر تست مثل یه آینه‌ست؛ بهت کمک می‌کنه بخش‌هایی از خودتو ببینی که شاید تا حالا متوجهشون نبودی.
+آماده‌ای با خودت روبه‌رو بشی؟ 🕊️""", reply_markup=mantal_menu)
+
+
+
+
+# --------------------------------------------------
+
+
+
+
+Relationships_menu = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="سبک دلبستگی – 🤝", callback_data="attachment_test")],
+        [InlineKeyboardButton(text="مثلث عشق استرنبرگ – ❤️‍🔥", callback_data="Love_triangle_test"),
+        InlineKeyboardButton(text="زبان‌های عشق – 💌", callback_data="love_lang_test")],
+        [InlineKeyboardButton(text="🔙 بازگشت", callback_data="main_menu")],
+    ]
+)
+
+@router.message(F.text == "❤️ تست‌های روابط")
+async def Relationships_test(message: Message, state: FSMContext):
+    profile = get_user_profile(message.from_user.id)
+    name = profile[0] if profile else "رفیق"
+    await message.answer("""❤️ رابطه‌هات چقدر سالم و واقعی‌ان؟
+اینجا می‌تونی بفهمی توی روابطت چطور رفتار می‌کنی، چه نیازهایی داری و چطور با دیگران ارتباط برقرار می‌کنی.
+چه توی رابطه‌ای باشی، چه مجرد، این تست‌ها بهت کمک می‌کنن خودتو توی آینه‌ی دیگران ببینی.""", reply_markup=Relationships_menu)
+
+
 async def main():
     init_user_db()
     await dp.start_polling(bot)
